@@ -1,0 +1,4 @@
+[submodule "zeroc-ice-feedstock"]
+	path = zeroc-ice-feedstock
+	url = https://github.com/conda-forge/zeroc-ice-feedstock.git
+	branch = version_3.6
