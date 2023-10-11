@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout repository and submodules
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Set up Python
@@ -33,7 +33,7 @@ jobs:
           python setup.py build -j 3
           python setup.py bdist_wheel
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: artifacts
           path: zeroc-ice-3.6.5/dist/*.whl
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts from build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
       - name: List artifacts
         run: ls -R
       - name: Release
