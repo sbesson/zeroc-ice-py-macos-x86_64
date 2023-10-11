@@ -20,14 +20,17 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Prepare build environment
+        run: |
+          pip install wheel twine numpy
       - name: Build wheel
         run: |
-          pip install wheel twine
           curl -J -O -L 'https://pypi.io/packages/source/z/zeroc-ice/zeroc-ice-3.6.5.tar.gz'
           tar zxf zeroc-ice-3.6.5.tar.gz
           patch -p0 < zeroc-ice-feedstock/recipe/osx.patch
           patch -p0 < 0001-numpy-parallel-compiler-and-syntax.patch
           cd zeroc-ice-3.6.5
+          python setup.py build -j 3
           python setup.py bdist_wheel
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
