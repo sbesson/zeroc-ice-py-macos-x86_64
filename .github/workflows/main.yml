@@ -29,6 +29,7 @@ jobs:
           tar zxf zeroc-ice-3.6.5.tar.gz
           patch -p0 < zeroc-ice-feedstock/recipe/osx.patch
           patch -p0 < 0001-numpy-parallel-compiler-and-syntax.patch
+          patch -p0 < 0002-python-311-support.patch
           cd zeroc-ice-3.6.5
           export MACOSX_DEPLOYMENT_TARGET=11.0
           python setup.py build -j 3
