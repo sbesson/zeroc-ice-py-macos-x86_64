@@ -30,7 +30,7 @@ jobs:
           patch -p0 < zeroc-ice-feedstock/recipe/osx.patch
           patch -p0 < 0001-numpy-parallel-compiler-and-syntax.patch
           cd zeroc-ice-3.6.5
-          export MACOSX_DEPLOYMENT_TARGET=10.13
+          export MACOSX_DEPLOYMENT_TARGET=11.0
           python setup.py build -j 3
           python setup.py bdist_wheel
       - name: Upload artifacts
