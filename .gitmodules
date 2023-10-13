@@ -2,3 +2,6 @@
 	path = zeroc-ice-feedstock
 	url = https://github.com/conda-forge/zeroc-ice-feedstock.git
 	branch = version_3.6
+[submodule "patches"]
+	path = patches
+	url = https://github.com/glencoesoftware/zeroc-ice-py-patches.git

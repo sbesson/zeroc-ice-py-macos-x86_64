@@ -28,8 +28,7 @@ jobs:
           curl -J -O -L 'https://pypi.io/packages/source/z/zeroc-ice/zeroc-ice-3.6.5.tar.gz'
           tar zxf zeroc-ice-3.6.5.tar.gz
           patch -p0 < zeroc-ice-feedstock/recipe/osx.patch
-          patch -p0 < 0001-numpy-parallel-compiler-and-syntax.patch
-          patch -p0 < 0002-python-311-support.patch
+          for f in patches/*; do patch -p0 < ${f}; done
           cd zeroc-ice-3.6.5
           export MACOSX_DEPLOYMENT_TARGET=11.0
           python setup.py build -j 3
